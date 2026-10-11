@@ -17,7 +17,7 @@ const EXAMPLES = [
   {
     emoji: '🔁',
     label: 'Hinglish & repeats',
-    phrase: 'Kal subah 9 baje dentist. Gym every Monday, Wednesday and Friday at 7 pm. Follow up with Arjun about the website on Thursday.',
+    phrase: 'मुझे कल सुबह 6:00 बजे डेंटिस्ट के पास जाना है. Gym every Monday, Wednesday and Friday at 7 pm. Follow up with Arjun about the website on Thursday.',
   },
 ]
 
