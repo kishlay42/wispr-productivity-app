@@ -549,27 +549,19 @@ export default function WelcomeGate({
           </button>
         </motion.div>
 
-        {/* Bypass / Quick Demo Actions */}
+        {/* Bypass / Quick Action */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.65 }}
-          className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-500 dark:text-zinc-400"
+          className="mt-6 flex items-center justify-center text-xs text-zinc-500 dark:text-zinc-400"
         >
           <button
             type="button"
             onClick={() => handleCommit('Kishlay')}
             className="transition hover:text-pink-600 hover:underline dark:hover:text-pink-400 cursor-pointer"
           >
-            Demo as Kishlay
-          </button>
-          <span>·</span>
-          <button
-            type="button"
-            onClick={() => (canClose && onClose ? onClose() : handleCommit('Friend'))}
-            className="transition hover:text-zinc-800 dark:hover:text-zinc-200 cursor-pointer"
-          >
-            Continue as Guest
+            Continue as Kishlay
           </button>
         </motion.div>
       </main>
