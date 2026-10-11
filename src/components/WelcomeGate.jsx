@@ -422,10 +422,10 @@ export default function WelcomeGate({
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="font-serif text-5xl font-normal tracking-tight text-zinc-900 sm:text-6xl md:text-7xl lg:text-8xl dark:text-zinc-50"
         >
-          Wispr your{' '}
-          <span className="italic bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 bg-clip-text text-transparent">
-            name
-          </span>
+          <span className="inline-block bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 bg-clip-text text-transparent pb-1 pr-1.5">
+            Wispr
+          </span>{' '}
+          your <span className="italic inline-block pr-2">name</span>
         </motion.h1>
 
         {/* Subtitle */}
