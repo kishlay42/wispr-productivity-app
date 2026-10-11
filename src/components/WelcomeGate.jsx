@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mic, ArrowRight, Sparkles, X, Sun, Moon, Volume2, Check } from 'lucide-react'
+import { Mic, ArrowRight, Sparkles, X, Sun, Moon, Volume2, Check, ExternalLink } from 'lucide-react'
 import { WisprFlowSymbol, WisprFlowModal } from './YapLogo'
 
 import {
@@ -549,19 +549,32 @@ export default function WelcomeGate({
           </button>
         </motion.div>
 
-        {/* Bypass / Quick Action */}
+        {/* Download Wispr Flow Callout & Demo Action */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.65 }}
-          className="mt-6 flex items-center justify-center text-xs text-zinc-500 dark:text-zinc-400"
+          className="mt-5 flex flex-col items-center justify-center gap-2.5 text-xs text-zinc-500 dark:text-zinc-400"
         >
+          <div className="flex items-center gap-1.5">
+            <span>Don’t have Wispr Flow?</span>
+            <a
+              href="https://wisprflow.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-medium text-pink-600 underline decoration-pink-500/40 underline-offset-4 transition hover:text-pink-700 hover:decoration-pink-600 dark:text-pink-400 dark:hover:text-pink-300 cursor-pointer"
+            >
+              <span>Download it now</span>
+              <ExternalLink className="size-3" />
+            </a>
+          </div>
+
           <button
             type="button"
             onClick={() => handleCommit('Kishlay')}
             className="transition hover:text-pink-600 hover:underline dark:hover:text-pink-400 cursor-pointer"
           >
-            Continue as Kishlay
+            Demo as Kishlay
           </button>
         </motion.div>
       </main>
