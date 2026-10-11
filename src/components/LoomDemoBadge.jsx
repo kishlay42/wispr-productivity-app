@@ -63,7 +63,7 @@ export default function LoomDemoBadge() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 360, damping: 28, delay: 0.8 }}
-          className="fixed left-0 top-[460px] z-[110] pointer-events-auto"
+          className="fixed left-0 top-[560px] z-[110] pointer-events-auto"
           aria-label="Video demo walkthrough"
         >
           <div
