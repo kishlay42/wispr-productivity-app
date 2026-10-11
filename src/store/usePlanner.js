@@ -4,12 +4,14 @@ import { demoState } from '../lib/demo.js'
 import { todayKey, tomorrowKey } from '../lib/dates.js'
 import { STATUS_ORDER } from '../lib/theme.js'
 
-export const STORAGE_KEY = 'yap-it-done:v1'
+export const STORAGE_KEY = 'neko-wispr-productivity:v1'
+export const LEGACY_STORAGE_KEY = 'yap-it-done:v1'
 const EMPTY = { events: [], todos: [], projects: [], ideas: [], prefs: {} }
 
 function load() {
   try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null')
+    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY)
+    const saved = JSON.parse(raw || 'null')
     if (!saved) return { ...EMPTY, theme: 'light' }
     return {
       events: Array.isArray(saved.events) ? saved.events : [],

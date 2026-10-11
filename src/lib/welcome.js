@@ -3,8 +3,10 @@
  * ("Whisper your name").
  */
 
-export const WELCOME_NAME_STORAGE_KEY = 'yap-it-done:name'
-export const WELCOMED_FLAG_STORAGE_KEY = 'yap-it-done:welcomed'
+export const WELCOME_NAME_STORAGE_KEY = 'neko-wispr:name'
+export const WELCOMED_FLAG_STORAGE_KEY = 'neko-wispr:welcomed'
+export const LEGACY_WELCOME_NAME_KEY = 'yap-it-done:name'
+export const LEGACY_WELCOMED_FLAG_KEY = 'yap-it-done:welcomed'
 
 /**
  * Detect client OS for Wispr Flow global shortcut presentation.
@@ -125,13 +127,13 @@ export function cleanSpokenName(transcript) {
 export function shouldShowWelcomeGate(storage = typeof localStorage !== 'undefined' ? localStorage : null) {
   if (!storage) return false
   try {
-    const savedName = storage.getItem(WELCOME_NAME_STORAGE_KEY)
+    const savedName = storage.getItem(WELCOME_NAME_STORAGE_KEY) || storage.getItem(LEGACY_WELCOME_NAME_KEY)
     if (savedName && savedName.trim()) return false
 
-    const welcomed = storage.getItem(WELCOMED_FLAG_STORAGE_KEY)
+    const welcomed = storage.getItem(WELCOMED_FLAG_STORAGE_KEY) || storage.getItem(LEGACY_WELCOMED_FLAG_KEY)
     if (welcomed === 'true') return false
 
-    const v1 = JSON.parse(storage.getItem('yap-it-done:v1') || '{}')
+    const v1 = JSON.parse(storage.getItem('neko-wispr-productivity:v1') || storage.getItem('yap-it-done:v1') || '{}')
     if (v1?.prefs?.name && String(v1.prefs.name).trim()) return false
 
     return true

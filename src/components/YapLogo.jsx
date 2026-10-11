@@ -133,7 +133,7 @@ export function YapWordmark({ className = '', onWisprClick }) {
       <YapLogo size={28} />
       <div className="flex items-center gap-1.5 font-sans">
         <span className="text-base font-semibold tracking-tight text-zinc-900 dark:text-white">
-          yap<span className="text-pink-500 dark:text-pink-400">it</span>done
+          neko<span className="text-pink-500 dark:text-pink-400">-</span>wispr
         </span>
         <span className="text-xs text-zinc-400">×</span>
         <button
@@ -238,7 +238,7 @@ export function WisprFlowModal({ open, onClose }) {
 
             <div className="space-y-2.5">
               <h4 className="font-semibold uppercase tracking-wider text-zinc-400 text-[10px]">
-                How Wispr Flow powers Yap It Done:
+                How Wispr Flow powers neko- wispr ai-productivity app:
               </h4>
 
               <div className="flex gap-3">

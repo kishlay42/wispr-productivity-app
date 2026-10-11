@@ -58,7 +58,7 @@ const gcalItem = (e) => ({
   date: e.date,
   start: e.start,
   end: e.end,
-  details: [e.person && `With ${e.person}`, e.category && `Category: ${e.category}`, 'Added from Yap It Done 🎙️'].filter(Boolean).join('\n'),
+  details: [e.person && `With ${e.person}`, e.category && `Category: ${e.category}`, 'Added from neko- wispr ai-productivity app 🎙️'].filter(Boolean).join('\n'),
 })
 
 export function EventPopover({ e, anchorRef, popRef, ops, onClose }) {

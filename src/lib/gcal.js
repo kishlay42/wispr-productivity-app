@@ -15,7 +15,7 @@ export function googleCalendarUrl({ title, date, start, end, details }) {
   } else if (isDate(date)) {
     params.set('dates', `${date.replaceAll('-', '')}/${nextDay(date)}`)
   }
-  params.set('details', details || 'Added from Yap It Done 🎙️')
+  params.set('details', details || 'Added from neko- wispr ai-productivity app 🎙️')
   return `https://calendar.google.com/calendar/render?${params}`
 }
 
@@ -34,14 +34,14 @@ export function downloadIcs({ title, date, start, end, details }) {
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Yap It Done//EN',
+    'PRODID:-//neko- wispr ai-productivity app//EN',
     'BEGIN:VEVENT',
-    `UID:${Date.now()}-${Math.random().toString(36).slice(2)}@yapitdone`,
+    `UID:${Date.now()}-${Math.random().toString(36).slice(2)}@neko-wispr`,
     `DTSTAMP:${now}`,
     timed ? `DTSTART:${stamp(date, start)}` : `DTSTART;VALUE=DATE:${date.replaceAll('-', '')}`,
     timed ? `DTEND:${stamp(date, en)}` : `DTEND;VALUE=DATE:${nextDay(date)}`,
     `SUMMARY:${esc(title)}`,
-    `DESCRIPTION:${esc(details || 'Added from Yap It Done')}`,
+    `DESCRIPTION:${esc(details || 'Added from neko- wispr ai-productivity app')}`,
     'END:VEVENT',
     'END:VCALENDAR',
   ]

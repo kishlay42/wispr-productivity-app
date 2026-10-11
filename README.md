@@ -1,4 +1,4 @@
-# 🎙️ Wispr Productivity App
+# 🐾 neko- wispr ai-productivity app
 
 > **Turn raw thoughts into finished work.** A voice-first, AI-augmented daily planner and productivity dashboard powered by [Wispr Flow](https://wisprflow.ai/) and Google Gemini.
 

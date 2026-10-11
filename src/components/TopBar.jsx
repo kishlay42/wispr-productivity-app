@@ -86,8 +86,8 @@ const TUX_COLORS = {
   F: '#ea580c', // orange penguin feet
 }
 
-const TUX_LINES = ['noot noot!', 'waddle~', 'linux!', 'yap it done!', 'brrr~', '♥']
-const DUO_LINES = ['besties!', 'paw & flipper!', 'yap duo!', 'yap it done!', 'purr & noot!', '♥']
+const TUX_LINES = ['noot noot!', 'waddle~', 'linux!', 'get it done!', 'brrr~', '♥']
+const DUO_LINES = ['besties!', 'paw & flipper!', 'neko duo!', 'get it done!', 'purr & noot!', '♥']
 
 export function PixelCat({ blinking, width = 48, height = 36 }) {
   const grid = blinking ? CAT_CLOSED : CAT_OPEN

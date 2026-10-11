@@ -417,7 +417,7 @@ export default function App() {
     if ('Notification' in window) permission = Notification.permission === 'default' ? await Notification.requestPermission() : Notification.permission
     ops.setPref('reminders', true)
     if (permission === 'granted') {
-      new Notification('Yap It Done reminders on 🔔', { body: "I'll ping you 10 minutes before each event." })
+      new Notification('neko- wispr ai-productivity app reminders on 🔔', { body: "I'll ping you 10 minutes before each event." })
       showToast("Reminders on. I'll ping you 10 min before each event.")
     } else showToast('Reminders on (in-app only: browser notifications are blocked).', 'warn')
   }

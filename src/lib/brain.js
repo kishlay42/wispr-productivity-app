@@ -13,7 +13,7 @@ export const ACTION_TYPES = [
   'delete_item',
 ]
 
-export const SYSTEM_PROMPT = `You are the brain of Yap It Done, a planner that people talk to.
+export const SYSTEM_PROMPT = `You are the brain of neko- wispr ai-productivity app, a planner that people talk to.
 People ramble and mix Hindi and English. Turn everything they say into a list of actions.
 
 ACTIONS

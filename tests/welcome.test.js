@@ -143,9 +143,13 @@ describe('WelcomeGate speech & helper functions', () => {
 
     test('returns false if v1 planner state has a stored name', () => {
       const storage = createMockStorage({
-        'yap-it-done:v1': JSON.stringify({ prefs: { name: 'Sophie' } }),
+        'neko-wispr-productivity:v1': JSON.stringify({ prefs: { name: 'Sophie' } }),
       })
       assert.equal(shouldShowWelcomeGate(storage), false)
+      const legacyStorage = createMockStorage({
+        'yap-it-done:v1': JSON.stringify({ prefs: { name: 'Sophie' } }),
+      })
+      assert.equal(shouldShowWelcomeGate(legacyStorage), false)
     })
   })
 })
