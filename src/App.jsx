@@ -26,6 +26,7 @@ import ProjectsPanel from './sections/ProjectsPanel'
 import WrapUpPanel from './sections/WrapUpPanel'
 import ScreenPets from './components/ScreenPets'
 import WelcomeGate from './components/WelcomeGate'
+import LoomDemoBadge from './components/LoomDemoBadge'
 import { shouldShowWelcomeGate, WELCOME_NAME_STORAGE_KEY, WELCOMED_FLAG_STORAGE_KEY, getAppShortcuts } from './lib/welcome'
 import { WisprFlowSymbol } from './components/YapLogo'
 
@@ -592,6 +593,7 @@ export default function App() {
       onChangeMode={onBrief}
     />
     <ScreenPets petMode={petMode} />
+    <LoomDemoBadge />
 
     <AnimatePresence>
       {showWelcome && (
