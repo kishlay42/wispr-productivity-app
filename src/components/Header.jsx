@@ -107,7 +107,7 @@ export default function Header({ state, onDemo, onBrief, reminders, onToggleRemi
             <button
               type="button"
               onClick={onOpenWelcome}
-              title="Change name or whisper your name again"
+              title="Change name or wispr your name again"
               className="italic text-pink-500 hover:text-pink-600 dark:text-pink-400 dark:hover:text-pink-300 cursor-pointer transition"
             >
               {name}

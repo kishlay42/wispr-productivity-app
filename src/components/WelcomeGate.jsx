@@ -252,7 +252,7 @@ export default function WelcomeGate({
 
       rec.onstart = () => {
         setIsListening(true)
-        setMicFeedback('Whispering… Speak your name clearly.')
+        setMicFeedback('Listening with Wispr… Speak your name clearly.')
       }
 
       rec.onresult = (e) => {
@@ -271,7 +271,7 @@ export default function WelcomeGate({
         if (e.error === 'not-allowed') {
           setMicFeedback('Microphone permission denied. Feel free to type your name!')
         } else if (e.error === 'no-speech') {
-          setMicFeedback('Didn’t catch that whisper. Tap mic to try again or type!')
+          setMicFeedback('Didn’t catch that voice. Tap mic to try again or type!')
         } else {
           setMicFeedback('Speech recognition pause. You can type your name!')
         }
@@ -422,7 +422,7 @@ export default function WelcomeGate({
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="font-serif text-5xl font-normal tracking-tight text-zinc-900 sm:text-6xl md:text-7xl lg:text-8xl dark:text-zinc-50"
         >
-          Whisper your{' '}
+          Wispr your{' '}
           <span className="italic bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 bg-clip-text text-transparent">
             name
           </span>
@@ -457,8 +457,8 @@ export default function WelcomeGate({
             <button
               type="button"
               onClick={toggleListening}
-              title={isListening ? 'Stop listening' : 'Whisper your name (Microphone)'}
-              aria-label={isListening ? 'Stop listening' : 'Whisper your name'}
+              title={isListening ? 'Stop listening' : 'Wispr your name (Microphone)'}
+              aria-label={isListening ? 'Stop listening' : 'Wispr your name'}
               className={`relative flex size-12 shrink-0 items-center justify-center rounded-xl transition-all duration-300 sm:size-14 sm:rounded-2xl cursor-pointer ${
                 isListening
                   ? 'bg-rose-500 text-white shadow-lg shadow-rose-500/40 scale-105'
@@ -490,7 +490,7 @@ export default function WelcomeGate({
               value={name}
               onChange={(e) => setName(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder={isListening ? 'Listening for your whisper…' : 'Whisper or type your name…'}
+              placeholder={isListening ? 'Listening with Wispr…' : 'Wispr or type your name…'}
               maxLength={40}
               className="min-w-0 flex-1 bg-transparent px-3 py-2 font-serif text-xl sm:text-2xl tracking-tight text-zinc-900 placeholder:font-sans placeholder:text-sm sm:placeholder:text-base placeholder:text-zinc-400 focus:outline-none dark:text-zinc-100 dark:placeholder:text-zinc-500"
             />
