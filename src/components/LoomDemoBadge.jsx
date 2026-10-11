@@ -59,11 +59,11 @@ export default function LoomDemoBadge() {
     <AnimatePresence>
       {!dismissed && (
         <motion.aside
-          initial={{ x: -80, y: '-50%', opacity: 0 }}
-          animate={{ x: 0, y: '-50%', opacity: 1 }}
-          exit={{ x: -100, y: '-50%', opacity: 0 }}
+          initial={{ x: -80, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 360, damping: 28, delay: 0.8 }}
-          className="fixed left-0 top-1/2 z-[110] pointer-events-auto"
+          className="fixed left-0 top-[460px] z-[110] pointer-events-auto"
           aria-label="Video demo walkthrough"
         >
           <div
