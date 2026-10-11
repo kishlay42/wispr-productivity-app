@@ -59,11 +59,11 @@ export default function LoomDemoBadge() {
     <AnimatePresence>
       {!dismissed && (
         <motion.aside
-          initial={{ x: 80, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 100, opacity: 0 }}
+          initial={{ x: 80, y: '-50%', opacity: 0 }}
+          animate={{ x: 0, y: '-50%', opacity: 1 }}
+          exit={{ x: 100, y: '-50%', opacity: 0 }}
           transition={{ type: 'spring', stiffness: 360, damping: 28, delay: 0.8 }}
-          className="fixed right-0 top-1/2 -translate-y-1/2 z-[110] pointer-events-auto"
+          className="fixed right-0 top-1/2 z-[110] pointer-events-auto"
           aria-label="Video demo walkthrough"
         >
           <div
@@ -77,12 +77,18 @@ export default function LoomDemoBadge() {
               }
             }}
             title="Watch Loom product demo video (opens in new tab)"
-            className="group relative flex items-center gap-2.5 rounded-l-2xl border-y border-l border-indigo-500/25 bg-white/95 py-2 pl-2 pr-3 shadow-xl shadow-indigo-500/10 backdrop-blur-xl transition-[transform,border-color,box-shadow] hover:-translate-x-1.5 hover:border-indigo-500/40 hover:shadow-2xl hover:shadow-indigo-500/20 active:scale-[0.98] cursor-pointer dark:border-indigo-400/20 dark:bg-[#140f1f]/95 dark:shadow-black/50"
+            className="group relative flex items-center gap-2.5 rounded-l-2xl border-y border-l border-indigo-500/25 bg-white/95 py-2 pl-3 pr-2 shadow-xl shadow-indigo-500/10 backdrop-blur-xl transition-[transform,border-color,box-shadow] hover:-translate-x-1.5 hover:border-indigo-500/40 hover:shadow-2xl hover:shadow-indigo-500/20 active:scale-[0.98] cursor-pointer dark:border-indigo-400/20 dark:bg-[#140f1f]/95 dark:shadow-black/50"
           >
-            {/* Protruding Semicircle with Loom Logo */}
-            <div className="flex size-9 sm:size-10 shrink-0 items-center justify-center rounded-full bg-[#625df5] text-white shadow-md shadow-indigo-500/30 transition-transform group-hover:scale-105">
-              <LoomLogo size={18} />
-            </div>
+            {/* Dismiss Cross (X) on left */}
+            <button
+              type="button"
+              onClick={handleClose}
+              aria-label="Dismiss video demo badge"
+              title="Close"
+              className="rounded-full p-1 text-zinc-400 transition hover:bg-black/5 hover:text-zinc-700 active:scale-90 cursor-pointer dark:text-zinc-500 dark:hover:bg-white/10 dark:hover:text-zinc-200"
+            >
+              <X className="size-3" />
+            </button>
 
             {/* Content Details */}
             <div className="flex flex-col items-start gap-0.5">
@@ -104,16 +110,10 @@ export default function LoomDemoBadge() {
               </div>
             </div>
 
-            {/* Dismiss Cross (X) */}
-            <button
-              type="button"
-              onClick={handleClose}
-              aria-label="Dismiss video demo badge"
-              title="Close"
-              className="ml-1 rounded-full p-1 text-zinc-400 transition hover:bg-black/5 hover:text-zinc-700 active:scale-90 cursor-pointer dark:text-zinc-500 dark:hover:bg-white/10 dark:hover:text-zinc-200"
-            >
-              <X className="size-3" />
-            </button>
+            {/* Loom Logo Badge on the right */}
+            <div className="flex size-9 sm:size-10 shrink-0 items-center justify-center rounded-full bg-[#625df5] text-white shadow-md shadow-indigo-500/30 transition-transform group-hover:scale-105">
+              <LoomLogo size={18} />
+            </div>
           </div>
         </motion.aside>
       )}
