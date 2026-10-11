@@ -80,10 +80,10 @@ export function getAppShortcuts(customNavigator) {
   const mod = isMac ? '⌘' : 'Ctrl+'
   const wisprKey = isMac ? 'Fn' : os === 'windows' ? 'Ctrl + Win' : 'Fn / Ctrl + Win'
   const capturePlaceholder = isMac
-    ? 'Add task or hold Wispr Flow key (Fn) to yap…'
+    ? 'Add task (⌘K to search) or hold Wispr Flow key (Fn) to yap…'
     : os === 'windows'
-    ? 'Add task or hold Wispr Flow key (Ctrl + Win) to yap…'
-    : 'Add task or hold Wispr Flow key to yap…'
+    ? 'Add task (Ctrl+K to search) or hold Wispr Flow key (Ctrl + Win) to yap…'
+    : 'Add task (Ctrl+K to search) or hold Wispr Flow key to yap…'
 
   return {
     os,
@@ -93,7 +93,7 @@ export function getAppShortcuts(customNavigator) {
     focus: `${mod}K`,
     undo: `${mod}Z`,
     footerText: `${mod}K focus · ${mod}Z undo`,
-    captureText: `${mod}K focus`,
+    captureText: `${mod}K search`,
     capturePlaceholder,
   }
 }

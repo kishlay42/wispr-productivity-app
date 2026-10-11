@@ -141,11 +141,11 @@ const CaptureCard = forwardRef(function CaptureCard({ onSubmit, processing, proj
                   processing
                     ? 'Sorting it out with Gemini…'
                     : expanded
-                    ? 'Type task: "Gym at 7am", "Report done", "Pitch due Friday"…'
+                    ? `Add task or hold Wispr Flow key (${shortcuts.wisprKey}) to yap… (${shortcuts.focus} to search)`
                     : shortcuts.capturePlaceholder
                 }
                 className="thin-scrollbar block max-h-[88px] w-full resize-none bg-transparent py-0.5 text-xs leading-relaxed text-zinc-900 outline-none placeholder:text-zinc-400 sm:text-sm dark:text-zinc-100 dark:placeholder:text-zinc-500"
-                aria-label="Add task or yap anything"
+                aria-label={`Add task, search (${shortcuts.focus}), or yap with Wispr Flow (${shortcuts.wisprKey})`}
               />
             </div>
 
@@ -172,6 +172,16 @@ const CaptureCard = forwardRef(function CaptureCard({ onSubmit, processing, proj
 
           {/* Action pills & keyboard badges */}
           <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
+            {/* Keyboard shortcut badge for quick search / focus */}
+            {!expanded && !text && (
+              <span
+                className="hidden sm:inline-flex items-center gap-1 rounded-md border border-zinc-200/90 bg-zinc-100/80 px-1.5 py-0.5 font-mono text-[10px] font-medium text-zinc-500 select-none dark:border-white/10 dark:bg-white/[0.06] dark:text-zinc-400"
+                title={`Press ${shortcuts.focus} to trigger search / focus`}
+              >
+                <kbd>{shortcuts.focus}</kbd>
+              </span>
+            )}
+
             {/* Compress / Expand toggle button */}
             {expanded && (
               <button
@@ -247,10 +257,12 @@ const CaptureCard = forwardRef(function CaptureCard({ onSubmit, processing, proj
                     </button>
                   ))}
                 </div>
-                <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
+                <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] text-zinc-400">
                   <span>esc to collapse</span>
                   <span>·</span>
-                  <span>{shortcuts.captureText}</span>
+                  <span>{shortcuts.focus} to search</span>
+                  <span>·</span>
+                  <span>Wispr Flow: {shortcuts.wisprKey}</span>
                 </div>
               </div>
             </motion.div>

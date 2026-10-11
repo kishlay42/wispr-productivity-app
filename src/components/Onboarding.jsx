@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { PANEL } from '../lib/theme'
+import { getAppShortcuts } from '../lib/welcome'
 
 const EXAMPLES = [
   {
@@ -28,6 +29,8 @@ const item = {
 
 // First-run empty state: three tappable example phrases
 export default function Onboarding({ onTry, onDemo }) {
+  const shortcuts = getAppShortcuts()
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 12 }}
@@ -44,7 +47,9 @@ export default function Onboarding({ onTry, onDemo }) {
           <Sparkles className="size-3.5" /> First time here
         </div>
         <h2 className="font-serif text-4xl tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">Talk to it. It sorts itself.</h2>
-        <p className="mt-2 font-mono text-[12px] text-zinc-500 dark:text-zinc-400">Tap an example or hold your Wispr Flow key and ramble</p>
+        <p className="mt-2 font-mono text-[12px] text-zinc-500 dark:text-zinc-400">
+          Press <kbd className="rounded border border-black/10 bg-black/5 px-1 py-0.5 text-[11px] font-semibold dark:border-white/15 dark:bg-white/10">{shortcuts.focus}</kbd> to search or add task · Hold Wispr Flow (<kbd className="rounded border border-black/10 bg-black/5 px-1 py-0.5 text-[11px] font-semibold dark:border-white/15 dark:bg-white/10">{shortcuts.wisprKey}</kbd>) to yap
+        </p>
 
         <motion.div variants={container} initial="hidden" animate="show" className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-3">
           {EXAMPLES.map((ex) => (
