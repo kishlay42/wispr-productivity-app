@@ -87,6 +87,16 @@
 
 ---
 
+## 🌐 Deploy to Vercel
+
+1. Import this repository (`kishlay42/wispr-productivity-app`) in the [Vercel Dashboard](https://vercel.com/new).
+2. Under **Environment Variables**, configure:
+   - `VITE_GEMINI_API_KEY` = your Gemini API key
+   - `VITE_GEMINI_MODEL` = `gemini-flash-lite-latest`
+3. Click **Deploy**. SPA rewrites and caching headers are pre-configured in `vercel.json`.
+
+---
+
 ## 🧭 Project Architecture
 
 ```
