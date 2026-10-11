@@ -91,7 +91,7 @@ describe('WelcomeGate speech & helper functions', () => {
       assert.equal(shortcuts.undo, '⌘Z')
       assert.equal(shortcuts.footerText, '⌘K focus · ⌘Z undo')
       assert.equal(shortcuts.captureText, '⌘K search')
-      assert.equal(shortcuts.capturePlaceholder, 'Add task (⌘K to search) or hold Wispr Flow key (Fn) to yap…')
+      assert.equal(shortcuts.capturePlaceholder, 'Add task or hold Wispr Flow key (Fn) to yap…')
     })
 
     test('returns Ctrl+ shortcuts and Ctrl + Win keys on Windows', () => {
@@ -105,7 +105,7 @@ describe('WelcomeGate speech & helper functions', () => {
       assert.equal(shortcuts.undo, 'Ctrl+Z')
       assert.equal(shortcuts.footerText, 'Ctrl+K focus · Ctrl+Z undo')
       assert.equal(shortcuts.captureText, 'Ctrl+K search')
-      assert.equal(shortcuts.capturePlaceholder, 'Add task (Ctrl+K to search) or hold Wispr Flow key (Ctrl + Win) to yap…')
+      assert.equal(shortcuts.capturePlaceholder, 'Add task or hold Wispr Flow key (Ctrl + Win) to yap…')
     })
 
     test('returns Ctrl+ shortcuts on Linux / other', () => {
@@ -114,7 +114,7 @@ describe('WelcomeGate speech & helper functions', () => {
       const shortcuts = getAppShortcuts(linuxNav)
       assert.equal(shortcuts.footerText, 'Ctrl+K focus · Ctrl+Z undo')
       assert.equal(shortcuts.captureText, 'Ctrl+K search')
-      assert.equal(shortcuts.capturePlaceholder, 'Add task (Ctrl+K to search) or hold Wispr Flow key to yap…')
+      assert.equal(shortcuts.capturePlaceholder, 'Add task or hold Wispr Flow key to yap…')
     })
   })
 

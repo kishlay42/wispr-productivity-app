@@ -141,11 +141,13 @@ const CaptureCard = forwardRef(function CaptureCard({ onSubmit, processing, proj
                   processing
                     ? 'Sorting it out with Gemini…'
                     : expanded
-                    ? `Add task or hold Wispr Flow key (${shortcuts.wisprKey}) to yap… (${shortcuts.focus} to search)`
+                    ? `Add task or hold Wispr Flow key (${shortcuts.wisprKey}) to yap…`
                     : shortcuts.capturePlaceholder
                 }
-                className="thin-scrollbar block max-h-[88px] w-full resize-none bg-transparent py-0.5 text-xs leading-relaxed text-zinc-900 outline-none placeholder:text-zinc-400 sm:text-sm dark:text-zinc-100 dark:placeholder:text-zinc-500"
-                aria-label={`Add task, search (${shortcuts.focus}), or yap with Wispr Flow (${shortcuts.wisprKey})`}
+                className={`thin-scrollbar block max-h-[88px] w-full resize-none bg-transparent py-0.5 text-xs leading-relaxed text-zinc-900 outline-none placeholder:text-zinc-400 sm:text-sm dark:text-zinc-100 dark:placeholder:text-zinc-500 ${
+                  expanded ? 'overflow-y-auto' : 'overflow-hidden'
+                }`}
+                aria-label={`Add task or yap with Wispr Flow (${shortcuts.wisprKey})`}
               />
             </div>
 
