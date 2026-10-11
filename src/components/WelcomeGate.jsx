@@ -568,10 +568,15 @@ export default function WelcomeGate({
 
       {/* 5. Bottom Branding */}
       <footer className="relative z-30 pb-6 pt-2 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-pink-500/20 bg-white/50 px-3.5 py-1 text-xs font-medium text-zinc-600 backdrop-blur-md dark:border-sky-400/20 dark:bg-zinc-900/50 dark:text-zinc-300">
-          <WisprFlowSymbol size={12} className="text-pink-500" />
+        <button
+          type="button"
+          onClick={() => setShowWisprModal(true)}
+          className="group inline-flex items-center gap-2 rounded-full border border-pink-500/20 bg-white/50 px-3.5 py-1 text-xs font-medium text-zinc-600 backdrop-blur-md transition hover:border-pink-500/40 hover:bg-white/80 active:scale-95 cursor-pointer dark:border-sky-400/20 dark:bg-zinc-900/50 dark:text-zinc-300 dark:hover:bg-zinc-900/80"
+          title="Learn how Wispr Flow powers this planner"
+        >
+          <WisprFlowSymbol size={12} className="text-pink-500 transition-transform group-hover:scale-110" />
           <span>Powered by Wispr Flow and Google Gemini</span>
-        </div>
+        </button>
       </footer>
 
       {/* Wispr Flow Informational Modal */}
