@@ -272,9 +272,15 @@ export default function App() {
     document.documentElement.classList.toggle('dark', theme === 'dark')
   }, [theme])
 
+  const lastUndoRef = useRef(0)
   const showToast = useCallback((text, tone = 'ok', undo = false) => {
     clearTimeout(toastTimer.current)
-    setToast({ id: Date.now(), text, tone, undo })
+    setToast((prev) => {
+      if (prev && prev.text === text && prev.tone === tone && prev.undo === undo) {
+        return prev
+      }
+      return { id: Date.now(), text, tone, undo }
+    })
     toastTimer.current = setTimeout(() => setToast(null), undo ? 6500 : 4500)
   }, [])
 
@@ -293,6 +299,9 @@ export default function App() {
   )
 
   const undo = useCallback(() => {
+    const now = Date.now()
+    if (now - lastUndoRef.current < 200) return
+    lastUndoRef.current = now
     if (ops.undo()) {
       setHeard(null)
       setHighlight(new Set())
@@ -401,14 +410,22 @@ export default function App() {
 
   const onBrief = (mode) => setBrief(buildBrief(getState(), mode, userName))
 
+  const demoClickRef = useRef(0)
   const onDemo = () => {
+    const now = Date.now()
+    if (now - demoClickRef.current < 400) return
+    demoClickRef.current = now
     ops.loadDemo()
     setAnchor(todayKey())
     showToast('Demo data loaded. Try: "Meeting with Kishlay at 3:30, fest project is at risk"', 'ok', true)
   }
 
   // Reminders: browser notification + in-app toast 10 min before each event
+  const reminderClickRef = useRef(0)
   const toggleReminders = async () => {
+    const now = Date.now()
+    if (now - reminderClickRef.current < 400) return
+    reminderClickRef.current = now
     if (reminders) {
       ops.setPref('reminders', false)
       return showToast('Reminders off.')

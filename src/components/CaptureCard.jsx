@@ -45,15 +45,21 @@ const CaptureCard = forwardRef(function CaptureCard({ onSubmit, processing, proj
     }
   }, [])
 
+  const submittingRef = useRef(false)
   const submit = async (value = textRef.current) => {
     const t = value.trim()
-    if (!t || processing) return
+    if (!t || processing || submittingRef.current) return
+    submittingRef.current = true
     setText(t)
-    const ok = await onSubmit(t)
-    if (ok) {
-      setText('')
-      setExpanded(false)
-      setShowSuggestions(false)
+    try {
+      const ok = await onSubmit(t)
+      if (ok) {
+        setText('')
+        setExpanded(false)
+        setShowSuggestions(false)
+      }
+    } finally {
+      submittingRef.current = false
     }
     requestAnimationFrame(() => taRef.current?.focus())
   }

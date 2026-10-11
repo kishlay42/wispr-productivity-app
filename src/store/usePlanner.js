@@ -49,6 +49,20 @@ export function usePlanner() {
 
   const snapshot = useCallback(() => {
     const { events, todos, projects, ideas } = ref.current
+    const last = history.current[history.current.length - 1]
+    if (
+      last &&
+      last.events.length === events.length &&
+      last.todos.length === todos.length &&
+      last.projects.length === projects.length &&
+      last.ideas.length === ideas.length
+    ) {
+      const sameE = last.events.every((e, i) => e.id === events[i].id && e.done === events[i].done && e.title === events[i].title)
+      const sameT = last.todos.every((t, i) => t.id === todos[i].id && t.done === todos[i].done && t.title === todos[i].title)
+      const sameP = last.projects.every((p, i) => p.id === projects[i].id && p.status === projects[i].status && p.title === projects[i].title)
+      const sameI = last.ideas.every((d, i) => d.id === ideas[i].id && d.title === ideas[i].title)
+      if (sameE && sameT && sameP && sameI) return
+    }
     history.current.push({
       events: [...events],
       todos: [...todos],

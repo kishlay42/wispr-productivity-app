@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check, CornerDownRight, PartyPopper } from 'lucide-react'
 import { EmptyHint } from './TodayPanel'
@@ -77,10 +77,12 @@ export default function WrapUpPanel({ state, ops, highlight }) {
   const nothing = doneItems.length + carryItems.length + followItems.length === 0
   const weekday = new Date().toLocaleDateString('en-US', { weekday: 'long' })
 
+  const closeTimerRef = useRef(null)
   const close = () => {
     const n = ops.closeDay()
     setClosed(typeof n === 'number' ? n : carryItems.length)
-    setTimeout(() => setClosed(null), 3500)
+    clearTimeout(closeTimerRef.current)
+    closeTimerRef.current = setTimeout(() => setClosed(null), 3500)
   }
 
   return (
