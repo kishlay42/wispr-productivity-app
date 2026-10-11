@@ -404,17 +404,6 @@ export default function WelcomeGate({
 
       {/* Center Hero: Editorial Typography & Glassmorphic Voice Input */}
       <main className="relative z-20 mx-auto my-auto flex w-full max-w-3xl flex-col items-center px-4 py-8 text-center sm:px-6">
-        {/* Soft Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-pink-500/25 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-sky-500/10 px-3.5 py-1 text-xs font-medium text-pink-700 backdrop-blur-md dark:border-pink-400/20 dark:text-pink-300"
-        >
-          <Sparkles className="size-3.5 text-pink-500 animate-pulse" />
-          <span>Interactive Voice Entrance</span>
-        </motion.div>
-
         {/* Big Editorial Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
